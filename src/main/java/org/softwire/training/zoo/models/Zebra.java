@@ -4,21 +4,31 @@ import java.text.MessageFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class Zebra extends AbstractAnimal implements LargeAnimal, CanBeGroomed {
+public class Zebra extends AnimalThatCanBeGroomed implements LargeAnimal{
+    private String name;
 
     private LocalDateTime lastGroomed;
 
     public Zebra(LocalDate dateOfBirth) {
         super(dateOfBirth);
     }
-
-    @Override
-    public void groom() {
-        lastGroomed = LocalDateTime.now();
+    public Zebra(LocalDate dateOfBirth, String name) {
+        super(dateOfBirth, name);
     }
 
     @Override
-    public String toString() {
-        return MessageFormat.format("{0}; Last Groomed {1}", super.toString(), lastGroomed);
+    public void feed() {
+        System.out.println("Neigh!!!  (Zebra)");
+        super.feed();
     }
+
+    @Override
+    public void setName(String name) {
+        super.setName(name);
+    }
+
+//    @Override
+//    public void groom() {
+//    super.groom();}
+
 }

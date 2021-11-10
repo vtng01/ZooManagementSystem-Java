@@ -10,9 +10,14 @@ import java.time.LocalDateTime;
 public abstract class AbstractAnimal implements Animal {
     private LocalDate dateOfBirth;
     private LocalDateTime lastFed;
+    private String name;
 
     protected AbstractAnimal(LocalDate dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
+    }
+    protected AbstractAnimal(LocalDate dateOfBirth, String name) {
+        this.dateOfBirth = dateOfBirth;
+        this.name = name;
     }
 
     public Duration age() {
@@ -33,6 +38,11 @@ public abstract class AbstractAnimal implements Animal {
 
     @Override
     public String toString() {
-        return MessageFormat.format("{0}, last fed {1}", getClass().getSimpleName(), lastFed);
+        if (name == null) {
+            name = "not given";
+        }
+        return MessageFormat.format("{0}, name: {1}, last fed {2}", getClass().getSimpleName(), this.name, lastFed);
     }
+
+    public abstract void setName(String name);
 }

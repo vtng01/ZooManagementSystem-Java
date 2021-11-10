@@ -14,7 +14,7 @@ public class Keeper<T extends Animal> {
         this.animals.add(animal);
     }
 
-    public void groom(CanBeGroomed animal) {
+    public void groom(AnimalThatCanBeGroomed animal) {
         animal.groom();
     }
 

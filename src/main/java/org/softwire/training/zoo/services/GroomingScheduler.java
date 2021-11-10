@@ -1,6 +1,7 @@
 package org.softwire.training.zoo.services;
 
 import org.softwire.training.zoo.models.Animal;
+import org.softwire.training.zoo.models.AnimalThatCanBeGroomed;
 import org.softwire.training.zoo.models.CanBeGroomed;
 import org.softwire.training.zoo.models.Keeper;
 
@@ -21,8 +22,8 @@ public class GroomingScheduler {
 
     public void assignGroomingJobs(List<Keeper<? extends Animal>> keepers) {
         keepers.forEach(keeper -> keeper.getResponsibleAnimals().forEach(animal -> {
-            if (animal instanceof CanBeGroomed) {
-                keeper.groom((CanBeGroomed) animal);
+            if (animal instanceof AnimalThatCanBeGroomed) {
+                keeper.groom((AnimalThatCanBeGroomed) animal);
             }
         }));
     }

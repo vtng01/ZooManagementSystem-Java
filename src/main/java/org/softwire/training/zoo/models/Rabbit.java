@@ -4,9 +4,8 @@ import java.text.MessageFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-public class Rabbit extends AbstractAnimal implements SmallAnimal, CanBeGroomed {
-
-    private LocalDateTime lastGroomed;
+public class Rabbit extends AnimalThatCanBeGroomed implements SmallAnimal {
+    private String name;
 
     public Rabbit(LocalDate dateOfBirth) {
         super(dateOfBirth);
@@ -14,17 +13,21 @@ public class Rabbit extends AbstractAnimal implements SmallAnimal, CanBeGroomed 
 
     @Override
     public void feed() {
-        System.out.println("<Munch munch>");
+        System.out.println("Munch Munch (Rabbit)");
         super.feed();
     }
-
-    @Override
-    public void groom() {
-        lastGroomed = LocalDateTime.now();
+    public Rabbit(LocalDate dateOfBirth, String name) {
+        super(dateOfBirth, name);
     }
 
     @Override
-    public String toString() {
-        return MessageFormat.format("{0}; Last Groomed {1}", super.toString(), lastGroomed);
+    public void setName(String name) {
+        super.setName(name);
     }
+
+//    @Override
+//    public void groom() {
+//        super.groom();
+//    }
+
 }

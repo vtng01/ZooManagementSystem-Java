@@ -18,7 +18,7 @@ public class App {
                 new Zebra(LocalDate.of(2008, 12, 1))
         );
         List<SmallAnimal> smallAnimals = Collections.singletonList(
-                new Rabbit(LocalDate.of(2014, 1, 1))
+                new Rabbit(LocalDate.of(2014, 1, 1), "Peter")
         );
 
         List<SmallAnimal> smallAnimals2 = Arrays.asList(
@@ -39,11 +39,15 @@ public class App {
         Rabbit babyRabbit = new Rabbit(LocalDate.now());
         smallAnimalKeeper.startLookingAfter(babyRabbit);
 
+
         FeedingScheduler feedingScheduler = FeedingScheduler.getInstance();
         GroomingScheduler groomingScheduler = GroomingScheduler.getInstance();
 
         feedingScheduler.assignFeedingJobs(keepers);
         groomingScheduler.assignGroomingJobs(keepers);
-        animals.forEach(System.out::println);
+//        animals.forEach(System.out::println);
+        keepers.forEach(keeper -> {
+            keeper.getResponsibleAnimals().forEach(System.out::println);
+        });
     }
 }

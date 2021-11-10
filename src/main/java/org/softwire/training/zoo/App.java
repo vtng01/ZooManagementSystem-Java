@@ -1,12 +1,6 @@
 package org.softwire.training.zoo;
 
-import org.softwire.training.zoo.models.Animal;
-import org.softwire.training.zoo.models.Keeper;
-import org.softwire.training.zoo.models.LargeAnimal;
-import org.softwire.training.zoo.models.Lion;
-import org.softwire.training.zoo.models.Rabbit;
-import org.softwire.training.zoo.models.SmallAnimal;
-import org.softwire.training.zoo.models.Zebra;
+import org.softwire.training.zoo.models.*;
 import org.softwire.training.zoo.services.FeedingScheduler;
 import org.softwire.training.zoo.services.GroomingScheduler;
 
@@ -26,14 +20,21 @@ public class App {
         List<SmallAnimal> smallAnimals = Collections.singletonList(
                 new Rabbit(LocalDate.of(2014, 1, 1))
         );
+
+        List<SmallAnimal> smallAnimals2 = Arrays.asList(
+                new GuineaFowl(LocalDate.of(2016, 1, 1))
+        );
+
         List<Animal> animals = new ArrayList<>();
         animals.addAll(largeAnimals);
         animals.addAll(smallAnimals);
+        animals.addAll(smallAnimals2);
 
         Keeper<LargeAnimal> largeAnimalKeeper = new Keeper<>(largeAnimals);
         Keeper<SmallAnimal> smallAnimalKeeper = new Keeper<>(smallAnimals);
+        Keeper<SmallAnimal> smallAnimalKeeper2 = new Keeper<>(smallAnimals2);
 
-        List<Keeper<? extends Animal>> keepers = Arrays.asList(largeAnimalKeeper, smallAnimalKeeper);
+        List<Keeper<? extends Animal>> keepers = Arrays.asList(largeAnimalKeeper, smallAnimalKeeper, smallAnimalKeeper2);
 
         Rabbit babyRabbit = new Rabbit(LocalDate.now());
         smallAnimalKeeper.startLookingAfter(babyRabbit);

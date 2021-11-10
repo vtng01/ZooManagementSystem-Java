@@ -6,6 +6,7 @@ import java.text.MessageFormat;
 import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Random;
 
 public abstract class AbstractAnimal implements Animal {
     private LocalDate dateOfBirth;
@@ -37,12 +38,27 @@ public abstract class AbstractAnimal implements Animal {
     }
 
     @Override
+    public void doesSomething() {
+
+        double probability = Math.random();
+        if (probability < 0.3) {
+            System.out.println(getClass().getSimpleName() + ", " + this.name + ", attacked keeper!");
+        } else {
+            System.out.println(getClass().getSimpleName() + ", " + this.name + ", became docile!");
+        }
+
+    }
+
+    @Override
     public String toString() {
         if (name == null) {
-            name = "not given";
+            name = "no name given";
         }
+
         return MessageFormat.format("{0}, name: {1}, last fed {2}", getClass().getSimpleName(), this.name, lastFed);
     }
 
-    public abstract void setName(String name);
+    public void setName(String name) {
+        this.name = name;
+    };
 }

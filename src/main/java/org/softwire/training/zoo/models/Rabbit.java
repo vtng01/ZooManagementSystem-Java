@@ -20,14 +20,4 @@ public class Rabbit extends AnimalThatCanBeGroomed implements SmallAnimal {
         super(dateOfBirth, name);
     }
 
-    @Override
-    public void setName(String name) {
-        super.setName(name);
-    }
-
-//    @Override
-//    public void groom() {
-//        super.groom();
-//    }
-
 }

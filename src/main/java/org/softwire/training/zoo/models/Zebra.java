@@ -21,14 +21,4 @@ public class Zebra extends AnimalThatCanBeGroomed implements LargeAnimal{
         System.out.println("Neigh!!!  (Zebra)");
         super.feed();
     }
-
-    @Override
-    public void setName(String name) {
-        super.setName(name);
-    }
-
-//    @Override
-//    public void groom() {
-//    super.groom();}
-
 }

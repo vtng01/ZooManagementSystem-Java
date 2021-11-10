@@ -25,10 +25,4 @@ public class AnimalThatCanBeGroomed extends AbstractAnimal implements Animal{
         return MessageFormat.format("{0}; Last Groomed {1}", super.toString(), lastGroomed);
     }
 
-    @Override
-    public void setName(String name) {
-        this.name = name;
-    }
-
-
 }

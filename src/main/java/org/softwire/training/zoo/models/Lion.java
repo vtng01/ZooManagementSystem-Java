@@ -17,14 +17,8 @@ public class Lion extends AbstractAnimal implements LargeAnimal {
 
     @Override
     public void feed() {
-        System.out.println("RAWR!!!!  (Snoop Lion)");
+        System.out.println("RAWR!!!!  (Lion)");
         super.feed();
     }
-
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
 
 }

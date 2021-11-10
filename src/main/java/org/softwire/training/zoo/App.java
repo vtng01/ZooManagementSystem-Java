@@ -13,7 +13,7 @@ import java.util.List;
 public class App {
     public static void main(String[] args) {
         List<LargeAnimal> largeAnimals = Arrays.asList(
-                new Lion(LocalDate.of(2010, 4, 28)),
+                new Lion(LocalDate.of(2010, 4, 28), "Snoop Lion"),
                 new Lion(LocalDate.of(2012, 5, 11)),
                 new Zebra(LocalDate.of(2008, 12, 1))
         );
@@ -37,17 +37,31 @@ public class App {
         List<Keeper<? extends Animal>> keepers = Arrays.asList(largeAnimalKeeper, smallAnimalKeeper, smallAnimalKeeper2);
 
         Rabbit babyRabbit = new Rabbit(LocalDate.now());
+        babyRabbit.setName("John Smith");
+
+        GuineaFowl babyGuineaFowl = new GuineaFowl(LocalDate.now(), "Spearrow");
+        animals.add(babyGuineaFowl);
+        animals.add(babyRabbit);
         smallAnimalKeeper.startLookingAfter(babyRabbit);
 
 
         FeedingScheduler feedingScheduler = FeedingScheduler.getInstance();
         GroomingScheduler groomingScheduler = GroomingScheduler.getInstance();
 
+        System.out.println("===============");
+        System.out.println("Feeding animal");
         feedingScheduler.assignFeedingJobs(keepers);
         groomingScheduler.assignGroomingJobs(keepers);
-//        animals.forEach(System.out::println);
-        keepers.forEach(keeper -> {
-            keeper.getResponsibleAnimals().forEach(System.out::println);
-        });
+
+        System.out.println("================");
+        System.out.println("List of animals in Zoo");
+        animals.forEach(System.out::println);
+//        keepers.forEach(keeper -> {
+//            keeper.getResponsibleAnimals().forEach(System.out::println);
+//        });
+
+        System.out.println("================");
+        System.out.println("Attempting to pet animal");
+        animals.forEach(animal -> {animal.doesSomething();});
     }
 }

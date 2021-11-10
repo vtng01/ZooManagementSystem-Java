@@ -25,9 +25,4 @@ public class GuineaFowl extends AnimalThatCanBeGroomed implements SmallAnimal{
         super.setName(name);
     }
 
-//    @Override
-//    public void groom() {
-//        lastGroomed = LocalDateTime.now();
-//    }
-
 }
